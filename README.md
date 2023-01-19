@@ -1,1 +1,1 @@
-# WikiRacer!
+# WikiRacer
