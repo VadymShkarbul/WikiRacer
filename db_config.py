@@ -5,15 +5,6 @@ from sqlalchemy.orm import sessionmaker
 
 from models import Page, Link
 
-# engine = create_engine(
-#     "postgresql+psycopg2://postgres:postgres@localhost:5432/postgres",
-#     echo=True,
-#     future=True
-# )
-# Session = sessionmaker()
-# Session.configure(bind=engine)
-# session = Session()
-
 
 class DB:
     def __init__(self):
