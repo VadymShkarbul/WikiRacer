@@ -15,9 +15,9 @@ GROUP BY page.id
 ORDER BY link_count --DESC
 LIMIT 5
 
--- My implementation of the method in wikiracing and the database structure
+-- My implementation of the find_path() method
 -- do not allow me to perform the other two queries
 -- because I do not identify the search levels in my code.
--- Of course, my search method is not optimal, but it works.
--- I had a solution for this, but it looked weird and I'll give it up
--- in favor of a beautiful and more optimized code.
+-- I had a solution for this, but this is not the code
+-- that should be shared with a future employer ;)
+

@@ -63,21 +63,3 @@ class WikiRacer:
                     return path + [link]
                 queue.append((link, path + [link]))
         return []
-
-
-if __name__ == "__main__":
-
-    timer_start = time.perf_counter()
-    wr = WikiRacer()
-    # pth4 = wr.find_path('Дружба', 'Рим')
-    # print(pth4)
-    # pth1 = wr.find_path('Марка (грошова одиниця)', 'Китайський календар')
-    # print(pth1)
-    pth2 = wr.find_path('Фестиваль', 'Пілястра')
-    print(pth2)
-    # pth3 = wr.find_path('Дружина (військо)', '6 жовтня')
-    # print(pth3)
-
-    timer_end = time.perf_counter()
-
-    print("Elapsed:", timer_end - timer_start)
