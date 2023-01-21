@@ -1,5 +1,5 @@
 from sqlalchemy import String, Column, Integer, ForeignKey
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 
 base = declarative_base()
 metadata = base.metadata
@@ -10,6 +10,7 @@ class Page(base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(255))
+    links = relationship('Link')
 
 
 class Link(base):

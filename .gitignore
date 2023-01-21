@@ -261,7 +261,6 @@ poetry.toml
 .vscode/
 *.iml
 .DS_Store
-pg_data
 
 **__pycache__/
 
