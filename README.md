@@ -19,3 +19,4 @@ docker-compose up -d
 alembic upgrade head
 python wikiracing_test.py
 ```
+<img width="1792" alt="" src="https://user-images.githubusercontent.com/111114742/213871913-942dddd1-869f-4f7b-bdbe-aeea57e4572e.png">
