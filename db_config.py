@@ -1,7 +1,7 @@
 from typing import List
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Query
 
 from models import Page, Link
 
@@ -17,13 +17,13 @@ class DB:
         Session.configure(bind=self.engine)
         self.session = Session()
 
-    def add_page(self, name):
+    def add_page(self, name: str) -> Page:
         new_page = Page(name=name)
         self.session.add(new_page)
         self.session.commit()
         return new_page
 
-    def get_page(self, name):
+    def get_page(self, name: str) -> Query:
         return self.session.query(Page).filter_by(name=name).first()
 
     def add_links(self, page_id: int, links: List[str]) -> None:

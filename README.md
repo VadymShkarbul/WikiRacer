@@ -8,7 +8,7 @@ Input:
 (‘Дружба’, ‘Рим’) -> [‘Дружба’, ‘Якопо Понтормо’, ‘Рим’]
 ```
 ## Installation:
-### [Python 3](https://www.python.org/downloads/) must be already installed
+### [Python 3](https://www.python.org/downloads/) and [Docker](https://docs.docker.com/get-docker/) must be already installed
 ```shell
 git clone https://github.com/VadymShkarbul/WikiRacer.git
 cd WikiRacer
