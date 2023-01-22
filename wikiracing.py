@@ -1,7 +1,11 @@
 import datetime
+import requests
+import sqlalchemy
 import wikipedia
 
 from typing import List
+from retry import retry
+from sqlalchemy import exc
 
 from db_config import DB
 
@@ -19,6 +23,14 @@ class WikiRacer:
             min_wait=datetime.timedelta(seconds=1 / REQUESTS_PER_MINUTE * 60)
         )
 
+    @retry(
+        exceptions=(
+                requests.exceptions.ConnectionError,
+                sqlalchemy.exc.OperationalError
+        ),
+        tries=5,
+        delay=2
+    )
     def find_path(self, start: str, finish: str) -> List[str]:
         # Create queue to keep track of the articles to be visited:
         queue = [(start, [start])]
@@ -47,8 +59,6 @@ class WikiRacer:
                 except wikipedia.exceptions.DisambiguationError as e:
                     # We choose links from options list:
                     links = e.options[:LINKS_PER_PAGE]
-                # TODO: Rerequest if connection fails!
-                # except requests.exceptions.ConnectionError:
                 # If current page is empty - we skip it:
                 except wikipedia.exceptions.PageError:
                     continue
