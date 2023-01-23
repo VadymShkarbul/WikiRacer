@@ -11,7 +11,7 @@ class DB:
         self.engine = create_engine(
             "postgresql+psycopg2://postgres:postgres@localhost:5432/postgres",
             echo=True,
-            future=True
+            future=True,
         )
         Session = sessionmaker()
         Session.configure(bind=self.engine)

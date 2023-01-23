@@ -6,15 +6,15 @@ metadata = base.metadata
 
 
 class Page(base):
-    __tablename__ = 'page'
+    __tablename__ = "page"
 
     id = Column(Integer, primary_key=True)
     name = Column(String(255))
-    links = relationship('Link')
+    links = relationship("Link")
 
 
 class Link(base):
-    __tablename__ = 'link'
+    __tablename__ = "link"
 
     id = Column(Integer, primary_key=True)
     name = Column(String(255))

@@ -20,16 +20,16 @@ class WikiRacer:
         wikipedia.set_lang("uk")
         wikipedia.set_rate_limiting(
             rate_limit=True,
-            min_wait=datetime.timedelta(seconds=1 / REQUESTS_PER_MINUTE * 60)
+            min_wait=datetime.timedelta(seconds=1 / REQUESTS_PER_MINUTE * 60),
         )
 
     @retry(
         exceptions=(
-                requests.exceptions.ConnectionError,
-                sqlalchemy.exc.OperationalError
+            requests.exceptions.ConnectionError,
+            sqlalchemy.exc.OperationalError,
         ),
         tries=5,
-        delay=2
+        delay=2,
     )
     def find_path(self, start: str, finish: str) -> List[str]:
         # Create queue to keep track of the articles to be visited:

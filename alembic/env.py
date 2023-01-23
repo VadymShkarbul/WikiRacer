@@ -19,6 +19,7 @@ if config.config_file_name is not None:
 # from models import Page
 # target_metadata = Page.metadata
 from models import base
+
 target_metadata = base.metadata
 # target_metadata = None
 
@@ -66,9 +67,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()
